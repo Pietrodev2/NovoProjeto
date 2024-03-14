@@ -15,7 +15,7 @@ app.use(function (req, res, next) {
 });
 
 app.get("/", function (req, res) {
-  res.send("Salve primo");
+  res.send("Olá");
 });
 
 app.post("/", function (req, res) {
