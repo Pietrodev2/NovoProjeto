@@ -2,10 +2,12 @@
 const express = require("express");
 
 // Importando o arquivo routerProdutos.js, onde provavelmente está definido o roteador de rotas relacionadas a produtos
-const routerProdutos = require('./router');
+const routerProdutos = require("./router");
 
 // Inicializando o aplicativo Express
 const app = express();
+
+app.use(express.json());
 
 // Utilizando o roteador de produtos no aplicativo
 app.use(routerProdutos);
