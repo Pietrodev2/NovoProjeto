@@ -14,7 +14,7 @@ app.use(routerProdutos);
 
 // Definindo a porta do servidor
 // O servidor será iniciado nesta porta quando chamar o método listen()
-const port = 3000;
+const port = 4000;
 
 // Iniciando o servidor na porta definida
 app.listen(port, function () {
