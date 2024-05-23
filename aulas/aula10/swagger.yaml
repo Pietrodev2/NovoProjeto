@@ -35,7 +35,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Produto'
+                  $ref: '#components/schemas/Produto'
   /produtos/{id}:
     get:
       tags:
@@ -49,17 +49,70 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#components/schemas/Produto'
+                $ref: '#/components/schemas/Produto'
         400:
           content:
             application/json:
               schema:
-                $ref: '#components/schemas/Mensagem'
+                $ref: '#/components/schemas/Mensagem'
         404:
           content:
             application/json:
               schema:
-                $ref: '#components/schemas/Mensagem'
+                $ref: '#/components/schemas/Mensagem'
+    put:
+      tags:
+        - produtos
+      parameters:
+        - in: path
+          name: id
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Produto'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mensagem'
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mensagem'
+        422:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mensagem'
+    delete:
+      tags:
+        - produtos
+      parameters:
+        - in: path
+          name: id
+          type: string
+      responses:
+        204:
+          content:
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mensagem'
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mensagem'
 components:
   schemas:
     Produto:

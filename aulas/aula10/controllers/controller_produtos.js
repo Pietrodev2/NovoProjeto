@@ -42,8 +42,16 @@ async function obter(req, res) {
   res.json(produto);
 }
 
-async function atualizar(req, res){
-    res.json({})
+async function atualizar(req, res) {
+  const id = new mongoose.Types.ObjectId(req.params.id);
+  const produto = await Produto.findOneAndUpdate({ _id: id }, req.body);
+  res.json(produto);
 }
 
-module.exports = { criar, validar, listar, obter, buscar, atualizar };
+async function remover(req, res) {
+  const id = new mongoose.Types.ObjectId(req.params.id);
+  await Produto.findOneAndDelete({ _id: id });
+  res.status(204).end();
+}
+
+module.exports = { criar, validar, listar, obter, buscar, atualizar, remover };
